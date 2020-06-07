@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@config": "./src/config"
+        }
+      }
+    ]
+  ]
+}
