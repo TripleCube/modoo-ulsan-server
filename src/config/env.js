@@ -24,7 +24,7 @@ switch (process.env.NODE_ENV) {
     logging = console.log;
 }
 
-export default {
+const env = {
   node: process.env.NODE_ENV,
   server: {
     port: process.env.PORT || 3000,
@@ -39,3 +39,5 @@ export default {
     timezone: process.env.DB_TIMEZONE,
   },
 };
+
+export default env;

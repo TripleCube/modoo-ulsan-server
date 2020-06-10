@@ -27,8 +27,7 @@ const database = {
   logging: env.database.logging,
 };
 
-module.exports = {
-  [env.node]: database,
-};
+// Export the module in CommonJS format for Sequelize CLI.
+exports[env.node] = database;
 
-export { database as default };
+export default database;
