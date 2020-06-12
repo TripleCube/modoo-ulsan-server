@@ -1,17 +1,16 @@
-export function up(queryInterface, Sequelize) {
-  return queryInterface.createTable('role', {
-    id: {
-      type: Sequelize.SMALLINT.UNSIGNED,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-  });
-}
+import { createAndDropTable } from '@utils/database';
 
-export async function down(queryInterface) {
-  return queryInterface.dropTable('role');
-}
+const tableName = 'role';
+const attributes = Sequelize => ({
+  id: {
+    type: Sequelize.SMALLINT.UNSIGNED,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+});
+
+export default createAndDropTable(tableName, attributes);
