@@ -1,6 +1,14 @@
-function createTable(tableName, attributes) {
+import { sequelize } from '@loaders';
+
+function executeTransaction(callback) {
+  return sequelize.transaction(async transaction => {
+    await callback(transaction);
+  });
+}
+
+function createTable(tableName, defineAttributes) {
   return async (queryInterface, Sequelize) => {
-    await queryInterface.createTable(tableName, attributes(Sequelize));
+    await queryInterface.createTable(tableName, defineAttributes(Sequelize));
   };
 }
 
@@ -10,14 +18,14 @@ function dropTable(tableName) {
   };
 }
 
-export function createAndDropTable(tableName, attributes) {
+function performMigration(tableName, defineAttributes) {
   return {
-    up: createTable(tableName, attributes),
+    up: createTable(tableName, defineAttributes),
     down: dropTable(tableName),
   };
 }
 
-export function addTimestamps(Sequelize, numberOfColumns = 1) {
+function addTimestamps(Sequelize, numberOfColumns = 1) {
   const timestamps = [
     {
       created_at: {
@@ -43,3 +51,5 @@ export function addTimestamps(Sequelize, numberOfColumns = 1) {
     return Object.assign(columns, timestamp);
   }, {});
 }
+
+export { executeTransaction, performMigration, addTimestamps };

@@ -17,6 +17,7 @@
         "root": ["."],
         "alias": {
           "@config": "./src/config",
+          "@loaders": "./src/loaders",
           "@utils": "./src/utils"
         }
       }

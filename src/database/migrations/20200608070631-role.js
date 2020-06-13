@@ -1,7 +1,7 @@
-import { createAndDropTable } from '@utils/database';
+import { performMigration } from '@utils/database';
 
 const tableName = 'role';
-const attributes = Sequelize => ({
+const defineAttributes = Sequelize => ({
   id: {
     type: Sequelize.SMALLINT.UNSIGNED,
     primaryKey: true,
@@ -13,4 +13,4 @@ const attributes = Sequelize => ({
   },
 });
 
-export default createAndDropTable(tableName, attributes);
+export default performMigration(tableName, defineAttributes);
