@@ -1,6 +1,6 @@
 {
   "name": "modoo-ulsan-server",
-  "version": "0.1.1-alpha.4",
+  "version": "0.1.1-alpha.5",
   "description": "Backend for Modoo Ulsan",
   "repository": "https://github.com/TripleCube/modoo-ulsan-server",
   "author": "TripleCube <can@live.in>",
@@ -11,7 +11,8 @@
     "clean": "rimraf dist",
     "serve": "nodemon src/server.js",
     "add:migration": "sequelize migration:generate --name $NAME",
-    "migrate": "sequelize db:migrate"
+    "migrate": "sequelize db:migrate",
+    "migrate:reset": "sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
