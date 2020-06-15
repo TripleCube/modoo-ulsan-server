@@ -53,5 +53,9 @@ export default class Member extends Model {
       foreignKey: 'roleId',
       targetKey: 'id',
     });
+    this.hasOne(models.Account, {
+      foreignKey: 'memberId',
+      targetKey: 'id',
+    });
   }
 }

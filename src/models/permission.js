@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-export default class Role extends Model {
+export default class Permission extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -16,19 +16,15 @@ export default class Role extends Model {
       },
       {
         sequelize,
-        tableName: 'role',
+        tableName: 'permission',
       },
     );
   }
 
   static associate(models) {
-    this.hasMany(models.Member, {
-      foreignKey: 'roleId',
-      targetKey: 'id',
-    });
-    this.belongsToMany(models.Permission, {
+    this.belongsToMany(models.Role, {
       through: 'RolePermission',
-      foreignKey: 'roleId',
+      foreignKey: 'permissionId',
       targetKey: 'id',
     });
   }

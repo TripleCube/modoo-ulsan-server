@@ -1,38 +1,26 @@
 import { performMigration, addTimestamps } from '@utils/database';
 
-const tableName = 'member';
+const tableName = 'account';
 const defineAttributes = Sequelize => ({
   id: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
   },
-  display_name: {
+  email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
   },
-  point: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  address: {
+  password: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  location: {
-    type: Sequelize.GEOMETRY('POINT', 4326),
-    allowNull: false,
-  },
-  profile_image: {
-    type: 'BINARY(16)',
-    allowNull: false,
-  },
-  // role_id: {
-  //   type: Sequelize.SMALLINT.UNSIGNED,
-  //   allowNull: false,
+  // member_id: {
+  //   type: Sequelize.INTEGER.UNSIGNED,
+  //   unique: true,
   // },
-  ...addTimestamps(Sequelize, 3),
+  ...addTimestamps(Sequelize, 2),
 });
 
 export default performMigration(tableName, defineAttributes);
