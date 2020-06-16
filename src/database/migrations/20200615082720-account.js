@@ -16,10 +16,14 @@ const defineAttributes = Sequelize => ({
     type: Sequelize.STRING,
     allowNull: false,
   },
-  // member_id: {
-  //   type: Sequelize.INTEGER.UNSIGNED,
-  //   unique: true,
-  // },
+  member_id: {
+    type: Sequelize.INTEGER.UNSIGNED,
+    unique: true,
+    references: {
+      model: 'member',
+      key: 'id',
+    },
+  },
   ...addTimestamps(Sequelize, 2),
 });
 

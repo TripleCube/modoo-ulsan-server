@@ -28,10 +28,14 @@ const defineAttributes = Sequelize => ({
     type: 'BINARY(16)',
     allowNull: false,
   },
-  // role_id: {
-  //   type: Sequelize.SMALLINT.UNSIGNED,
-  //   allowNull: false,
-  // },
+  role_id: {
+    type: Sequelize.SMALLINT.UNSIGNED,
+    allowNull: false,
+    references: {
+      model: 'role',
+      key: 'id',
+    },
+  },
   ...addTimestamps(Sequelize, 3),
 });
 
