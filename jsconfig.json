@@ -4,6 +4,7 @@
     "paths": {
       "@config": ["src/config"],
       "@loaders": ["src/loaders"],
+      "@models": ["./src/models"],
       "@utils/*": ["src/utils/*"]
     }
   }

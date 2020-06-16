@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 
 export default class Permission extends Model {
   static init(sequelize) {
-    super.init(
+    return super.init(
       {
         id: {
           type: DataTypes.SMALLINT.UNSIGNED,

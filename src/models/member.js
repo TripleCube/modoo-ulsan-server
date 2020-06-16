@@ -2,7 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 
 export default class Member extends Model {
   static init(sequelize) {
-    super.init(
+    return super.init(
       {
         id: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -25,7 +25,7 @@ export default class Member extends Model {
         },
         location: {
           type: DataTypes.GEOMETRY('POINT', 4326),
-          allowNull: false,
+          // allowNull: false,
         },
         profileImage: {
           type: 'BINARY(16)',
@@ -43,7 +43,6 @@ export default class Member extends Model {
         tableName: 'member',
         timestamps: true,
         paranoid: true,
-        updatedAt: false,
       },
     );
   }
