@@ -1,4 +1,4 @@
-import { performMigration, addTimestamps } from '@utils/database';
+import { addTimestamps, performMigration } from '@utils/database';
 
 const tableName = 'member';
 const defineAttributes = Sequelize => ({

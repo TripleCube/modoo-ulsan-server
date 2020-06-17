@@ -1,8 +1,8 @@
-import { Model, DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 
 export default class Permission extends Model {
   static init(sequelize) {
-    return super.init(
+    super.init(
       {
         id: {
           type: DataTypes.SMALLINT.UNSIGNED,

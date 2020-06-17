@@ -1,8 +1,8 @@
-import { Model, DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 
 export default class Account extends Model {
   static init(sequelize) {
-    return super.init(
+    super.init(
       {
         id: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -13,6 +13,9 @@ export default class Account extends Model {
           type: DataTypes.STRING,
           unique: true,
           allowNull: false,
+          validate: {
+            isEmail: true,
+          },
         },
         password: {
           type: DataTypes.STRING,
@@ -30,6 +33,8 @@ export default class Account extends Model {
         timestamps: true,
       },
     );
+
+    // this.addHook();
   }
 
   static associate(models) {

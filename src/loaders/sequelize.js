@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
+
 import { database } from '@config';
 import * as models from '@models';
 
