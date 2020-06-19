@@ -1,48 +1,50 @@
 import { DataTypes, Model } from 'sequelize';
 
-export default class Authentication extends Model {
+export default class Identity extends Model {
   static init(sequelize) {
     super.init(
       {
         id: {
           type: DataTypes.INTEGER.UNSIGNED,
           primaryKey: true,
+          autoIncrement: true,
         },
-        provider: {
+        providerId: {
           type: DataTypes.TINYINT.UNSIGNED,
-          primaryKey: true,
+          allowNull: false,
+          field: 'provider_id',
+        },
+        providerKey: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          field: 'provider_key',
+        },
+        email: {
+          type: DataTypes.STRING,
+          validate: {
+            isEmail: true,
+          },
         },
         memberId: {
           type: DataTypes.INTEGER.UNSIGNED,
           allowNull: false,
           field: 'member_id',
         },
-        email: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-            isEmail: true,
-          },
-        },
-        token: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        expiresAt: {
-          type: DataTypes.DATE,
-          allowNull: false,
-          field: 'expires_at',
-        },
       },
       {
         sequelize,
-        tableName: 'authentication',
+        tableName: 'identity',
         timestamps: true,
+        updatedAt: false,
       },
     );
   }
 
   static associate(models) {
+    this.belongsTo(models.Provider, {
+      foreignKey: 'provider_id',
+      targetKey: 'id',
+    });
     this.belongsTo(models.Member, {
       foreignKey: 'memberId',
       targetKey: 'id',

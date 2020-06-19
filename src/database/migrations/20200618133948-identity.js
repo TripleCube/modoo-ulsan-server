@@ -1,14 +1,22 @@
 import { addTimestamps, performMigration } from '@utils/database';
 
-const tableName = 'authentication';
+const tableName = 'identity';
 const defineAttributes = Sequelize => ({
   id: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
+    autoIncrement: true,
   },
-  provider: {
+  provider_id: {
     type: Sequelize.TINYINT.UNSIGNED,
-    primaryKey: true,
+    allowNull: false,
+  },
+  provider_key: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: Sequelize.STRING,
   },
   member_id: {
     type: Sequelize.INTEGER.UNSIGNED,
@@ -18,19 +26,7 @@ const defineAttributes = Sequelize => ({
       key: 'id',
     },
   },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  token: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  expires_at: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-  ...addTimestamps(Sequelize, 2),
+  ...addTimestamps(Sequelize, 1),
 });
 
 export default performMigration(tableName, defineAttributes);
