@@ -1,4 +1,4 @@
-import { performMigration } from '@utils/database';
+import { performMigration } from '@utils/migration';
 
 const tableName = 'role_permission';
 const defineAttributes = Sequelize => ({
