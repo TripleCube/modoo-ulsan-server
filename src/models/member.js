@@ -11,8 +11,8 @@ export default class Member extends Model {
         },
         displayName: {
           type: DataTypes.STRING,
-          unique: true,
           allowNull: false,
+          unique: true,
           field: 'display_name',
         },
         point: {

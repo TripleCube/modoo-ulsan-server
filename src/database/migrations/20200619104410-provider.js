@@ -1,16 +1,33 @@
-import { performMigration } from '@utils/migration';
+import { DataTypes, Migration } from '@utils/migration';
 
-const tableName = 'provider';
-const defineAttributes = Sequelize => ({
-  id: {
-    type: Sequelize.TINYINT.UNSIGNED,
-    primaryKey: true,
-    autoIncrement: true,
+const table = {
+  name: 'provider',
+  columns: {
+    id: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
+};
+const indexes = [
+  {
+    type: 'constraint',
+    tableName: 'identity',
+    options: {
+      fields: ['provider_id'],
+      type: 'foreign key',
+      name: 'identity_fk_provider_id',
+      references: {
+        table: 'provider',
+        field: 'id',
+      },
+    },
   },
-});
+];
 
-export default performMigration(tableName, defineAttributes);
+export default Migration.init(table, undefined, indexes);

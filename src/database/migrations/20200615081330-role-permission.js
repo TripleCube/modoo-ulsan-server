@@ -1,23 +1,25 @@
-import { performMigration } from '@utils/migration';
+import { DataTypes, Migration } from '@utils/migration';
 
-const tableName = 'role_permission';
-const defineAttributes = Sequelize => ({
-  role_id: {
-    type: Sequelize.SMALLINT.UNSIGNED,
-    primaryKey: true,
-    references: {
-      model: 'role',
-      key: 'id',
+const table = {
+  name: 'role_permission',
+  columns: {
+    role_id: {
+      type: DataTypes.SMALLINT.UNSIGNED,
+      primaryKey: true,
+      references: {
+        model: 'role',
+        key: 'id',
+      },
+    },
+    permission_id: {
+      type: DataTypes.SMALLINT.UNSIGNED,
+      primaryKey: true,
+      references: {
+        model: 'permission',
+        key: 'id',
+      },
     },
   },
-  permission_id: {
-    type: Sequelize.SMALLINT.UNSIGNED,
-    primaryKey: true,
-    references: {
-      model: 'permission',
-      key: 'id',
-    },
-  },
-});
+};
 
-export default performMigration(tableName, defineAttributes);
+export default Migration.init(table);

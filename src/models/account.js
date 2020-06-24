@@ -11,8 +11,8 @@ export default class Account extends Model {
         },
         email: {
           type: DataTypes.STRING,
-          unique: true,
           allowNull: false,
+          unique: true,
           validate: {
             isEmail: true,
           },

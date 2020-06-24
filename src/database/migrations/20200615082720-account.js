@@ -1,30 +1,32 @@
-import { addTimestamps, performMigration } from '@utils/migration';
+import { DataTypes, Migration } from '@utils/migration';
 
-const tableName = 'account';
-const defineAttributes = Sequelize => ({
-  id: {
-    type: Sequelize.INTEGER.UNSIGNED,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  email: {
-    type: Sequelize.STRING,
-    unique: true,
-    allowNull: false,
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  member_id: {
-    type: Sequelize.INTEGER.UNSIGNED,
-    unique: true,
-    references: {
-      model: 'member',
-      key: 'id',
+const table = {
+  name: 'account',
+  columns: {
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    member_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      unique: true,
+      references: {
+        model: 'member',
+        key: 'id',
+      },
     },
   },
-  ...addTimestamps(Sequelize, 2),
-});
+  timestamps: 2,
+};
 
-export default performMigration(tableName, defineAttributes);
+export default Migration.init(table);
