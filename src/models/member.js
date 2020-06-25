@@ -56,7 +56,7 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       targetKey: 'id',
     });
-    this.hasOne(models.Authentication, {
+    this.hasMany(models.Identity, {
       foreignKey: 'memberId',
       targetKey: 'id',
     });

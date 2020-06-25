@@ -22,7 +22,7 @@ export default class Provider extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Authentication, {
+    this.hasMany(models.Identity, {
       foreignKey: 'provider_id',
       targetKey: 'id',
     });
