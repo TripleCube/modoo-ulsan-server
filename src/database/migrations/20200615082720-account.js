@@ -19,6 +19,7 @@ const table = {
     },
     member_id: {
       type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
       unique: true,
       references: {
         model: 'member',

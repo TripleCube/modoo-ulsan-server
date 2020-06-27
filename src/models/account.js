@@ -23,6 +23,7 @@ export default class Account extends Model {
         },
         memberId: {
           type: DataTypes.INTEGER.UNSIGNED,
+          allowNull: false,
           unique: true,
           field: 'member_id',
         },
@@ -33,8 +34,6 @@ export default class Account extends Model {
         timestamps: true,
       },
     );
-
-    // this.addHook();
   }
 
   static associate(models) {
