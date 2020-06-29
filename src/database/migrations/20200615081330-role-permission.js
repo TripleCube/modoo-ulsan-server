@@ -22,4 +22,4 @@ const table = {
   },
 };
 
-export default Migration.init(table);
+export default new Migration(table);

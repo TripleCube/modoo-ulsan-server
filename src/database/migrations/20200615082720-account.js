@@ -30,4 +30,4 @@ const table = {
   timestamps: 2,
 };
 
-export default Migration.init(table);
+export default new Migration(table);

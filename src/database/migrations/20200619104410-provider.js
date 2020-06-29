@@ -30,4 +30,4 @@ const indexes = [
   },
 ];
 
-export default Migration.init(table, undefined, indexes);
+export default new Migration(table, undefined, indexes);

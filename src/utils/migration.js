@@ -3,7 +3,7 @@ import { DataTypes } from 'sequelize';
 import { query, startTransaction } from './database';
 
 class Migration {
-  static init(table, columns, indexes) {
+  constructor(table, columns, indexes) {
     this.table = table;
     this.columns = columns;
     this.indexes = indexes;
@@ -14,7 +14,7 @@ class Migration {
     };
   }
 
-  static async run() {
+  async run() {
     await startTransaction(async transaction => {
       if (this.table) await this.createTable(transaction);
       if (this.columns) await this.addColumns(transaction);
@@ -22,7 +22,7 @@ class Migration {
     });
   }
 
-  static async revert() {
+  async revert() {
     await startTransaction(async transaction => {
       if (this.indexes) await this.removeIndexes(transaction);
       if (this.columns) await this.removeColumns(transaction);
@@ -30,18 +30,18 @@ class Migration {
     });
   }
 
-  static createTable(transaction) {
+  createTable(transaction) {
     if (this.table.timestamps) this.addTimestamps(this.table.timestamps);
     return query.createTable(this.table.name, this.table.columns, {
       transaction,
     });
   }
 
-  static dropTable(transaction) {
+  dropTable(transaction) {
     return query.dropTable(this.table.name, { transaction });
   }
 
-  static addColumns(transaction) {
+  addColumns(transaction) {
     return this.columns.reduce(async (promise, column) => {
       await promise;
       return query.addColumn(column.tableName, column.name, column.options, {
@@ -50,7 +50,7 @@ class Migration {
     }, Promise.resolve());
   }
 
-  static removeColumns(transaction) {
+  removeColumns(transaction) {
     return Promise.all(
       this.columns.map(column =>
         query.removeColumn(column.tableName, column.name, { transaction }),
@@ -58,18 +58,20 @@ class Migration {
     );
   }
 
-  static addIndexes(transaction) {
+  addIndexes(transaction) {
     return Promise.all(
       this.indexes.map(index => {
         switch (index.type) {
           case 'index':
-            return query.addIndex(index.tableName, index.options, {
-              transaction,
-            });
+            return query.addIndex(
+              index.tableName,
+              Object.assign(index.options, { transaction }),
+            );
           case 'constraint':
-            return query.addConstraint(index.tableName, index.options, {
-              transaction,
-            });
+            return query.addConstraint(
+              index.tableName,
+              Object.assign(index.options, { transaction }),
+            );
           default:
             throw new Error(`${index.type} is not defined`);
         }
@@ -77,7 +79,7 @@ class Migration {
     );
   }
 
-  static removeIndexes(transaction) {
+  removeIndexes(transaction) {
     return Promise.all(
       this.indexes.map(index => {
         switch (index.type) {
@@ -96,7 +98,7 @@ class Migration {
     );
   }
 
-  static addTimestamps(numberOfColumns) {
+  addTimestamps(numberOfColumns) {
     const timestamps = [
       {
         created_at: {
