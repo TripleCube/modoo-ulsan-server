@@ -19,6 +19,11 @@
           "@config": "./src/config",
           "@loaders": "./src/loaders",
           "@models": "./src/models",
+          "@repositories": "./src/repositories",
+          "@services": "./src/services",
+          "@controllers": "./src/api/controllers",
+          "@middlewares": "./src/api/middlewares",
+          "@routes": "./src/api/routes",
           "@utils": "./src/utils"
         }
       }

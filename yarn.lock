@@ -1301,6 +1301,58 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hapi/address@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@hapi/address@npm:4.0.1"
+  dependencies:
+    "@hapi/hoek": ^9.0.0
+  checksum: 3/3b7b3bddb9e86f9eb478f8945f5bb93fb7ee19e935f97e82de69ac193c0ca85cf15f6a525a6ca914cdef894f4c3bd0ee81e3767656fcea01a7a9d6fdaee19fad
+  languageName: node
+  linkType: hard
+
+"@hapi/formula@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@hapi/formula@npm:2.0.0"
+  checksum: 3/02d14257149799b478e21f2620639470efb152f09dd2083fb9a6f247f29760de4af6ceb938b2337ecdf2a0514c2edd5beca6df5415d5c2cea909977fb0da4eaf
+  languageName: node
+  linkType: hard
+
+"@hapi/hoek@npm:^9.0.0":
+  version: 9.0.4
+  resolution: "@hapi/hoek@npm:9.0.4"
+  checksum: 3/d000f60d5e30db7ed2b838a7ec4a757542f04036c8eb431328fd1139f3f7dbd400a2c7d86acbbaf8b8da11dee6f8ae706f6d88bd71c02b3c5f16fd3f6223aa09
+  languageName: node
+  linkType: hard
+
+"@hapi/joi@npm:^17.1.1":
+  version: 17.1.1
+  resolution: "@hapi/joi@npm:17.1.1"
+  dependencies:
+    "@hapi/address": ^4.0.1
+    "@hapi/formula": ^2.0.0
+    "@hapi/hoek": ^9.0.0
+    "@hapi/pinpoint": ^2.0.0
+    "@hapi/topo": ^5.0.0
+  checksum: 3/7547ccf2a8168e4f68f630069ab069f94d0689bd18a034a6dea40cc9c7e88776665670316f65bdd29068dccde111f3d7164504cfaf6db183110b64f36c5643dd
+  languageName: node
+  linkType: hard
+
+"@hapi/pinpoint@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@hapi/pinpoint@npm:2.0.0"
+  checksum: 3/445ca018999145dccff58ca1be71fa533c3124a1d0f256b8c3daf88067992a20aebfbdee49664741cfac160d924c76d24bd3e8eeb521af721e6f606f4bd64634
+  languageName: node
+  linkType: hard
+
+"@hapi/topo@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@hapi/topo@npm:5.0.0"
+  dependencies:
+    "@hapi/hoek": ^9.0.0
+  checksum: 3/f92797d5ef54bb801a3591a118ea483ed5a6b41cdd1aaa6f7bf427b64b5f76056bc7063447adf43be8f94b04408228cce12963ea498b8da8f9e01d01c78710ac
+  languageName: node
+  linkType: hard
+
 "@sindresorhus/is@npm:^0.14.0":
   version: 0.14.0
   resolution: "@sindresorhus/is@npm:0.14.0"
@@ -2763,9 +2815,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.21.2":
-  version: 2.21.2
-  resolution: "eslint-plugin-import@npm:2.21.2"
+"eslint-plugin-import@npm:^2.22.0":
+  version: 2.22.0
+  resolution: "eslint-plugin-import@npm:2.22.0"
   dependencies:
     array-includes: ^3.1.1
     array.prototype.flat: ^1.2.3
@@ -2782,7 +2834,7 @@ __metadata:
     tsconfig-paths: ^3.9.0
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0
-  checksum: 3/7568b049460079e439a282bc5daeed9cb908a7a63f8f55570940a0e84f59f2813d6ce3a20aeece3cef793a5e87d9e998df4e9f859a056d2020bd757d20571fe5
+  checksum: 3/ad41aec63d8986e0a0e279bb2877e1f36029573b8f310112159509fd52d7344a2e91bd4bb9c6d2b131838a3538a0bc5e3998217df1b88304df9872ad9fb30c84
   languageName: node
   linkType: hard
 
@@ -4648,6 +4700,7 @@ fsevents@~2.1.2:
     "@babel/plugin-proposal-class-properties": ^7.10.1
     "@babel/preset-env": ^7.10.3
     "@babel/register": ^7.10.3
+    "@hapi/joi": ^17.1.1
     babel-eslint: ^10.1.0
     babel-plugin-module-resolver: ^4.0.0
     bcrypt: ^5.0.0
@@ -4656,15 +4709,15 @@ fsevents@~2.1.2:
     eslint-config-airbnb-base: ^14.2.0
     eslint-config-prettier: ^6.11.0
     eslint-import-resolver-babel-module: ^5.1.2
-    eslint-plugin-import: ^2.21.2
+    eslint-plugin-import: ^2.22.0
     eslint-plugin-prettier: ^3.1.4
     express: ^4.17.1
     mariadb: ^2.4.0
     nodemon: ^2.0.4
     prettier: 2.0.5
     rimraf: ^3.0.2
-    sequelize: ^6.2.0
-    sequelize-cli: ^6.0.0
+    sequelize: ^6.2.3
+    sequelize-cli: ^6.1.0
   languageName: unknown
   linkType: soft
 
@@ -5967,9 +6020,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"sequelize-cli@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "sequelize-cli@npm:6.0.0"
+"sequelize-cli@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "sequelize-cli@npm:6.1.0"
   dependencies:
     cli-color: ^1.4.0
     fs-extra: ^7.0.1
@@ -5981,7 +6034,7 @@ fsevents@~2.1.2:
   bin:
     sequelize: lib/sequelize
     sequelize-cli: lib/sequelize
-  checksum: 3/b68e961f9f967b0375564f395bb078ae1b3816c56fcf46a7a388777c88400ea82a1f1e4a1c1df681378ea0ab32cd58e1904bd9c8f9b0377cd08e3cad2f9ae0b7
+  checksum: 3/f8934d427d46b46ee12d81c97a7c13091e32be8da6f0661977995bcc5b91acfb3f8cd5dab7159273ae80b64072bec97558d1d51e1312f2c04fd843e83ed725a0
   languageName: node
   linkType: hard
 
@@ -5992,9 +6045,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"sequelize@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "sequelize@npm:6.2.0"
+"sequelize@npm:^6.2.3":
+  version: 6.2.3
+  resolution: "sequelize@npm:6.2.3"
   dependencies:
     debug: ^4.1.1
     dottie: ^2.0.0
@@ -6009,7 +6062,7 @@ fsevents@~2.1.2:
     uuid: ^8.1.0
     validator: ^10.11.0
     wkx: ^0.5.0
-  checksum: 3/d683f3baff74afa2d485510778601d3e54651b5e0ca489d4ac27c6cc168cb37150d0468a7dc4462a414fff340b5530d1eec2644883d9503a40c1e429c912ff95
+  checksum: 3/21991a1939975d4c694c71d38bde294e87c94e779e532ea3fcdb06c81a149b7a629bf2b9c866bbbffbc70d5306af468094b0f90293e603acbb965e6ce953c3d5
   languageName: node
   linkType: hard
 
