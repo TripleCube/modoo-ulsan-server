@@ -38,6 +38,13 @@ const env = {
     port: parseInt(process.env.DB_PORT, 10),
     timezone: process.env.DB_TIMEZONE,
   },
+  member: {
+    email: process.env.MEMBER_EMAIL,
+    password: process.env.MEMBER_PASSWORD,
+    address: process.env.MEMBER_ADDRESS,
+    coordinates: process.env.MEMBER_COORDINATES,
+    profileImage: process.env.MEMBER_IMAGE,
+  },
 };
 
 export default env;

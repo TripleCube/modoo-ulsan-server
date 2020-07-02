@@ -6,4 +6,8 @@ function startTransaction(callback) {
   return sequelize.transaction(transaction => callback(transaction));
 }
 
-export { query, startTransaction };
+function setLocation(coordinates) {
+  return sequelize.fn('ST_GeomFromText', coordinates);
+}
+
+export { query, startTransaction, setLocation };
