@@ -26,7 +26,7 @@ const table = {
       allowNull: false,
     },
     profile_image: {
-      type: 'BINARY(16)',
+      type: DataTypes.STRING,
       allowNull: false,
     },
     role_id: {

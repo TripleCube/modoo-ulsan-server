@@ -8,8 +8,12 @@ const table = {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    section_id: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.CHAR(1),
       allowNull: false,
     },
   },

@@ -1,11 +1,11 @@
 import { DataTypes, Model } from 'sequelize';
 
-export default class Role extends Model {
+export default class Section extends Model {
   static init(sequelize) {
     super.init(
       {
         id: {
-          type: DataTypes.SMALLINT.UNSIGNED,
+          type: DataTypes.TINYINT.UNSIGNED,
           primaryKey: true,
           autoIncrement: true,
         },
@@ -13,22 +13,22 @@ export default class Role extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
+        isMine: {
+          type: DataTypes.BOOLEAN,
+          allowNull: false,
+          field: 'is_mine',
+        },
       },
       {
         sequelize,
-        tableName: 'role',
+        tableName: 'section',
       },
     );
   }
 
   static associate(models) {
-    this.belongsToMany(models.Permission, {
-      through: 'RolePermission',
-      foreignKey: 'roleId',
-      targetKey: 'id',
-    });
-    this.hasMany(models.Member, {
-      foreignKey: 'roleId',
+    this.hasMany(models.Permission, {
+      foreignKey: 'sectionId',
       targetKey: 'id',
     });
   }

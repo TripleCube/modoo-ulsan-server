@@ -28,7 +28,7 @@ export default class Member extends Model {
           allowNull: false,
         },
         profileImage: {
-          type: 'BINARY(16)',
+          type: DataTypes.STRING,
           allowNull: false,
           field: 'profile_image',
         },

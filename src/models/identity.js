@@ -42,7 +42,7 @@ export default class Identity extends Model {
 
   static associate(models) {
     this.belongsTo(models.Provider, {
-      foreignKey: 'provider_id',
+      foreignKey: 'providerId',
       targetKey: 'id',
     });
     this.belongsTo(models.Member, {

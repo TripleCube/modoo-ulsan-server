@@ -9,8 +9,13 @@ export default class Permission extends Model {
           primaryKey: true,
           autoIncrement: true,
         },
-        name: {
-          type: DataTypes.STRING,
+        sectionId: {
+          type: DataTypes.TINYINT.UNSIGNED,
+          allowNull: false,
+          field: 'section_id',
+        },
+        type: {
+          type: DataTypes.CHAR(1),
           allowNull: false,
         },
       },
@@ -22,6 +27,10 @@ export default class Permission extends Model {
   }
 
   static associate(models) {
+    this.belongsTo(models.Section, {
+      foreignKey: 'sectionId',
+      targetKey: 'id',
+    });
     this.belongsToMany(models.Role, {
       through: 'RolePermission',
       foreignKey: 'permissionId',
