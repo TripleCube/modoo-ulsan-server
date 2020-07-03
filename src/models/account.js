@@ -39,7 +39,7 @@ export default class Account extends Model {
   static associate(models) {
     this.belongsTo(models.Member, {
       foreignKey: 'memberId',
-      targetKey: 'id',
+      as: 'member',
     });
   }
 }

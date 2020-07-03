@@ -29,12 +29,12 @@ export default class Permission extends Model {
   static associate(models) {
     this.belongsTo(models.Section, {
       foreignKey: 'sectionId',
-      targetKey: 'id',
+      as: 'section',
     });
     this.belongsToMany(models.Role, {
       through: 'RolePermission',
       foreignKey: 'permissionId',
-      targetKey: 'id',
+      as: 'role',
     });
   }
 }

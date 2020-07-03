@@ -50,15 +50,15 @@ export default class Member extends Model {
   static associate(models) {
     this.belongsTo(models.Role, {
       foreignKey: 'roleId',
-      targetKey: 'id',
+      as: 'role',
     });
     this.hasOne(models.Account, {
       foreignKey: 'memberId',
-      targetKey: 'id',
+      as: 'account',
     });
     this.hasMany(models.Identity, {
       foreignKey: 'memberId',
-      targetKey: 'id',
+      as: 'identities',
     });
   }
 }

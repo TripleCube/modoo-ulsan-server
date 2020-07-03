@@ -25,11 +25,11 @@ export default class Role extends Model {
     this.belongsToMany(models.Permission, {
       through: 'RolePermission',
       foreignKey: 'roleId',
-      targetKey: 'id',
+      as: 'permission',
     });
     this.hasMany(models.Member, {
       foreignKey: 'roleId',
-      targetKey: 'id',
+      as: 'members',
     });
   }
 }

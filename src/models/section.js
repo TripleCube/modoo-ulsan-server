@@ -29,7 +29,7 @@ export default class Section extends Model {
   static associate(models) {
     this.hasMany(models.Permission, {
       foreignKey: 'sectionId',
-      targetKey: 'id',
+      as: 'permissions',
     });
   }
 }

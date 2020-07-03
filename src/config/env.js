@@ -45,6 +45,10 @@ const env = {
     coordinates: process.env.MEMBER_COORDINATES,
     profileImage: process.env.MEMBER_IMAGE,
   },
+  token: {
+    signature: process.env.JWT_SIGNATURE,
+    expiration: process.env.JWT_EXPIRATION,
+  },
 };
 
 export default env;

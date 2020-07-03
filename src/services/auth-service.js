@@ -1,7 +1,8 @@
-import { Account } from '@repositories';
+import { Account, Member } from '@repositories';
 import { startTransaction } from '@utils/database';
 import { UnauthorizedError } from '@utils/errors';
 import { compare, hash } from '@utils/password';
+import { decodeToken, generateToken } from '@utils/token';
 
 export default class AuthService {
   static async signUp(account) {
@@ -18,6 +19,9 @@ export default class AuthService {
     const isValid = await compare(password, account.password);
     if (!isValid) throw new UnauthorizedError();
 
-    return account;
+    const member = await Member.findById(account.memberId);
+    const token = generateToken(member);
+
+    return { account, member, token };
   }
 }
