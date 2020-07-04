@@ -60,5 +60,9 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       as: 'identities',
     });
+    this.hasMany(models.Prediction, {
+      foreignKey: 'memberId',
+      as: 'predictions',
+    });
   }
 }
