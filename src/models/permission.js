@@ -34,7 +34,7 @@ export default class Permission extends Model {
     this.belongsToMany(models.Role, {
       through: 'RolePermission',
       foreignKey: 'permissionId',
-      as: 'role',
+      as: 'roles',
     });
   }
 }
