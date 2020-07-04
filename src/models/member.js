@@ -64,5 +64,9 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       as: 'estimates',
     });
+    this.hasMany(models.Bookmark, {
+      foreignKey: 'memberId',
+      as: 'bookmarks',
+    });
   }
 }

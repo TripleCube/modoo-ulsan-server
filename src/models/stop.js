@@ -60,5 +60,9 @@ export default class Stop extends Model {
       foreignKey: 'stopId',
       as: 'routes',
     });
+    this.hasMany(models.Bookmark, {
+      foreignKey: 'stopId',
+      as: 'bookmarks',
+    });
   }
 }
