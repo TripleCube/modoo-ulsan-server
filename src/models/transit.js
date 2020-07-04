@@ -72,5 +72,9 @@ export default class Transit extends Model {
       foreignKey: 'transitId',
       as: 'routes',
     });
+    this.hasMany(models.Timetable, {
+      foreignKey: 'transitId',
+      as: 'timetables',
+    });
   }
 }
