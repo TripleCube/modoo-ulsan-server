@@ -30,9 +30,9 @@ export default class Day extends Model {
       foreignKey: 'dayId',
       as: 'travelTimes',
     });
-    this.hasMany(models.Prediction, {
+    this.hasMany(models.Estimate, {
       foreignKey: 'dayId',
-      as: 'predictions',
+      as: 'estimates',
     });
   }
 }

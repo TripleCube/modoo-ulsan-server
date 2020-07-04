@@ -60,9 +60,9 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       as: 'identities',
     });
-    this.hasMany(models.Prediction, {
+    this.hasMany(models.Estimate, {
       foreignKey: 'memberId',
-      as: 'predictions',
+      as: 'estimates',
     });
   }
 }

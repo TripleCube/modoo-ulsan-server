@@ -45,5 +45,13 @@ export default class Travel extends Model {
       foreignKey: 'travelId',
       as: 'vehicles',
     });
+    this.hasMany(models.TravelTime, {
+      foreignKey: 'travelId',
+      as: 'travelTimes',
+    });
+    this.hasMany(models.Estimate, {
+      foreignKey: 'travelId',
+      as: 'estimates',
+    });
   }
 }

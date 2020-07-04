@@ -1,14 +1,14 @@
 import { DataTypes, Migration } from '@utils/migration';
 
 const table = {
-  name: 'prediction',
+  name: 'estimate',
   columns: {
     id: {
       type: DataTypes.BIGINT.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
-    transit_name: {
+    vehicle_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

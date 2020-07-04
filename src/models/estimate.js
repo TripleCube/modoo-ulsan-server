@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 
-export default class Prediction extends Model {
+export default class Estimate extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -9,10 +9,10 @@ export default class Prediction extends Model {
           primaryKey: true,
           autoIncrement: true,
         },
-        transit_name: {
+        vehicleName: {
           type: DataTypes.STRING,
           allowNull: false,
-          field: 'transit_name',
+          field: 'vehicle_name',
         },
         travelId: {
           type: DataTypes.INTEGER.UNSIGNED,
@@ -55,7 +55,7 @@ export default class Prediction extends Model {
       },
       {
         sequelize,
-        tableName: 'prediction',
+        tableName: 'estimate',
         timestamps: true,
         updatedAt: false,
       },
