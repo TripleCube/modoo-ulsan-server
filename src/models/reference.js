@@ -35,5 +35,13 @@ export default class Reference extends Model {
       foreignKey: 'actionId',
       as: 'action',
     });
+    this.hasMany(models.Vote, {
+      foreignKey: 'referenceId',
+      as: 'votes',
+    });
+    this.hasMany(models.Point, {
+      foreignKey: 'referenceId',
+      as: 'points',
+    });
   }
 }

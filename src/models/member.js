@@ -15,10 +15,6 @@ export default class Member extends Model {
           unique: true,
           field: 'display_name',
         },
-        point: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-        },
         address: {
           type: DataTypes.STRING,
           allowNull: false,
@@ -31,6 +27,15 @@ export default class Member extends Model {
           type: DataTypes.STRING,
           allowNull: false,
           field: 'profile_image',
+        },
+        points: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        dailyLimit: {
+          type: DataTypes.TINYINT.UNSIGNED,
+          allowNull: false,
+          field: 'daily_limit',
         },
         roleId: {
           type: DataTypes.SMALLINT.UNSIGNED,
@@ -67,6 +72,14 @@ export default class Member extends Model {
     this.hasMany(models.Bookmark, {
       foreignKey: 'memberId',
       as: 'bookmarks',
+    });
+    this.hasMany(models.Vote, {
+      foreignKey: 'memberId',
+      as: 'votes',
+    });
+    this.hasMany(models.Point, {
+      foreignKey: 'memberId',
+      as: 'points',
     });
   }
 }

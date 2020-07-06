@@ -13,10 +13,6 @@ const table = {
       allowNull: false,
       unique: true,
     },
-    point: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,6 +23,14 @@ const table = {
     },
     profile_image: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    points: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    daily_limit: {
+      type: DataTypes.TINYINT.UNSIGNED,
       allowNull: false,
     },
     role_id: {
