@@ -79,7 +79,7 @@ export default class Member extends Model {
     });
     this.hasMany(models.Point, {
       foreignKey: 'memberId',
-      as: 'points',
+      as: 'pointsHistory',
     });
   }
 }
