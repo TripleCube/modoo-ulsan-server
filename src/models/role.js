@@ -35,5 +35,9 @@ export default class Role extends Model {
       foreignKey: 'roleId',
       as: 'boards',
     });
+    this.hasMany(models.Post, {
+      foreignKey: 'roleId',
+      as: 'posts',
+    });
   }
 }

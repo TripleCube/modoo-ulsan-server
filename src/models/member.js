@@ -81,5 +81,13 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       as: 'pointsHistory',
     });
+    this.hasMany(models.Post, {
+      foreignKey: 'memberId',
+      as: 'posts',
+    });
+    this.hasMany(models.Comment, {
+      foreignKey: 'memberId',
+      as: 'comments',
+    });
   }
 }

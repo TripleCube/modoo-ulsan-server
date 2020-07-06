@@ -57,5 +57,9 @@ export default class Board extends Model {
       foreignKey: 'boardId',
       as: 'categories',
     });
+    this.hasMany(models.Post, {
+      foreignKey: 'boardId',
+      as: 'posts',
+    });
   }
 }
