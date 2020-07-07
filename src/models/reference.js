@@ -43,5 +43,9 @@ export default class Reference extends Model {
       foreignKey: 'referenceId',
       as: 'points',
     });
+    this.hasMany(models.PopularContent, {
+      foreignKey: 'referenceId',
+      as: 'popularContent',
+    });
   }
 }

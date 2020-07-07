@@ -61,5 +61,9 @@ export default class Board extends Model {
       foreignKey: 'boardId',
       as: 'posts',
     });
+    this.hasMany(models.PopularContent, {
+      foreignKey: 'boardId',
+      as: 'popularContent',
+    });
   }
 }
