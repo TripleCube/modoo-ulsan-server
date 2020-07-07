@@ -1,7 +1,7 @@
 import { DataTypes, Migration } from '@utils/migration';
 
 const table = {
-  name: 'restriction',
+  name: 'violation',
   columns: {
     id: {
       type: DataTypes.SMALLINT.UNSIGNED,

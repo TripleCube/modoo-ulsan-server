@@ -47,5 +47,13 @@ export default class Reference extends Model {
       foreignKey: 'referenceId',
       as: 'popularContent',
     });
+    this.hasMany(models.Restriction, {
+      foreignKey: 'referenceId',
+      as: 'restrictions',
+    });
+    this.hasMany(models.Report, {
+      foreignKey: 'referenceId',
+      as: 'reports',
+    });
   }
 }

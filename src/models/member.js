@@ -89,5 +89,17 @@ export default class Member extends Model {
       foreignKey: 'memberId',
       as: 'comments',
     });
+    this.hasMany(models.Restriction, {
+      foreignKey: 'memberId',
+      as: 'restrictions',
+    });
+    this.hasMany(models.Report, {
+      foreignKey: 'sourceMemberId',
+      as: 'sourceMembers',
+    });
+    this.hasMany(models.Report, {
+      foreignKey: 'targetMemberId',
+      as: 'targetMembers',
+    });
   }
 }

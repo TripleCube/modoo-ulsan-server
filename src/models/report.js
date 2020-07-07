@@ -1,18 +1,27 @@
 import { DataTypes, Model } from 'sequelize';
 
-export default class Restriction extends Model {
+export default class Report extends Model {
   static init(sequelize) {
     super.init(
       {
-        memberId: {
+        sourceMemberId: {
           type: DataTypes.INTEGER.UNSIGNED,
           primaryKey: true,
-          field: 'member_id',
+          field: 'source_member_id',
+        },
+        targetMemberId: {
+          type: DataTypes.INTEGER.UNSIGNED,
+          primaryKey: true,
+          field: 'target_member_id',
         },
         referenceId: {
           type: DataTypes.BIGINT.UNSIGNED,
           primaryKey: true,
           field: 'reference_id',
+        },
+        reason: {
+          type: DataTypes.STRING,
+          allowNull: false,
         },
         violationId: {
           type: DataTypes.SMALLINT.UNSIGNED,
@@ -22,7 +31,7 @@ export default class Restriction extends Model {
       },
       {
         sequelize,
-        tableName: 'restriction',
+        tableName: 'report',
         timestamps: true,
         updatedAt: false,
       },
@@ -31,8 +40,12 @@ export default class Restriction extends Model {
 
   static associate(models) {
     this.belongsTo(models.Member, {
-      foreignKey: 'memberId',
-      as: 'member',
+      foreignKey: 'sourceMemberId',
+      as: 'sourceMember',
+    });
+    this.belongsTo(models.Member, {
+      foreignKey: 'targetMemberId',
+      as: 'targetMember',
     });
     this.belongsTo(models.Reference, {
       foreignKey: 'referenceId',
