@@ -1,9 +1,9 @@
 {
   "name": "modoo-ulsan-server",
-  "version": "0.2.0-alpha.5",
+  "version": "0.2.0-alpha.7",
   "description": "Backend for Modoo Ulsan",
-  "repository": "https://github.com/TripleCube/modoo-ulsan-server",
-  "author": "TripleCube <can@live.in>",
+  "repository": "https://github.com/tricube/modoo-ulsan-server",
+  "author": "Tricube <can@live.in>",
   "license": "MIT",
   "scripts": {
     "start": "yarn build && node dist/server.js",
@@ -22,22 +22,27 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mariadb": "^2.4.0",
-    "sequelize": "^6.2.4"
+    "mariadb": "^2.4.2",
+    "nodemailer": "^6.4.11",
+    "redis": "^3.0.2",
+    "sequelize": "^6.3.4",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
-    "@babel/core": "^7.10.4",
-    "@babel/node": "^7.10.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/eslint-parser": "^7.11.4",
+    "@babel/eslint-plugin": "^7.11.3",
+    "@babel/node": "^7.10.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.4",
-    "babel-eslint": "^10.1.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "babel-plugin-module-resolver": "^4.0.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
@@ -46,6 +51,6 @@
     "nodemon": "^2.0.4",
     "prettier": "2.0.5",
     "rimraf": "^3.0.2",
-    "sequelize-cli": "^6.1.0"
+    "sequelize-cli": "^6.2.0"
   }
 }
