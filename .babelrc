@@ -18,13 +18,15 @@
         "alias": {
           "@config": "./src/config",
           "@loaders": "./src/loaders",
+          "@utils": "./src/utils",
           "@models": "./src/models",
+          "@caches": "./src/caches",
           "@repositories": "./src/repositories",
           "@services": "./src/services",
+          "@facades": "./src/facades",
           "@controllers": "./src/api/controllers",
           "@middlewares": "./src/api/middlewares",
-          "@routes": "./src/api/routes",
-          "@utils": "./src/utils"
+          "@routes": "./src/api/routes"
         }
       }
     ]

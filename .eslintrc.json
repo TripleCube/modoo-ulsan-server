@@ -10,11 +10,12 @@
     "plugin:import/warnings",
     "plugin:prettier/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 11,
     "sourceType": "module"
   },
+  "plugins": ["@babel"],
   "rules": {
     "no-console": "off",
     "import/order": [
