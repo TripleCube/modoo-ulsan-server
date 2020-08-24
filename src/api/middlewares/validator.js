@@ -1,8 +1,10 @@
-import { ValidationError } from '@utils/errors';
+import { error } from '@utils';
 
 function validateValue(schema, value, next) {
   const result = schema.validate(value);
-  if (result.error) throw new ValidationError(result.error.details[0].message);
+  if (result.error) {
+    throw new error.ValidationError(result.error.details[0].message);
+  }
 
   return next();
 }

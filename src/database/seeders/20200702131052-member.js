@@ -1,13 +1,12 @@
 import { env } from '@config';
-import { setLocation } from '@utils/database';
-import Seeder from '@utils/seeder';
+import { database, seeder } from '@utils';
 
 const tableName = 'member';
 const records = [
   {
     display_name: 'Administrator',
     address: env.member.address,
-    location: setLocation(env.member.coordinates),
+    location: database.setLocation(env.member.coordinates),
     profile_image: env.member.profileImage,
     points: 100,
     daily_limit: 50,
@@ -18,7 +17,7 @@ const records = [
   {
     display_name: 'Manager',
     address: env.member.address,
-    location: setLocation(env.member.coordinates),
+    location: database.setLocation(env.member.coordinates),
     profile_image: env.member.profileImage,
     points: 100,
     daily_limit: 50,
@@ -28,4 +27,4 @@ const records = [
   },
 ];
 
-export default new Seeder(tableName, records);
+export default new seeder.Seeder(tableName, records);

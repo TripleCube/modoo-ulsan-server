@@ -1,6 +1,6 @@
 import { query, startTransaction } from './database';
 
-export default class Seeder {
+class Seeder {
   constructor(tableName, records) {
     this.tableName = tableName;
     this.records = records;
@@ -23,3 +23,5 @@ export default class Seeder {
     );
   }
 }
+
+export { Seeder };

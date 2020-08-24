@@ -8,4 +8,8 @@ export default class CommonCache {
   static findHashBy(key) {
     return cache.hgetallAsync(key);
   }
+
+  static deleteBy(key) {
+    return cache.delAsync(key);
+  }
 }

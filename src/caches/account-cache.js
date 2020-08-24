@@ -9,4 +9,9 @@ export default class AccountCache {
     await cache.hsetAsync(key, converter.toArray(account));
     await cache.expireAsync(key, 600);
   }
+
+  static async update(key, account) {
+    await cache.hsetAsync(key, converter.toArray(account));
+    await cache.expireAsync(key, 7200);
+  }
 }

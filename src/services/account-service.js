@@ -19,23 +19,35 @@ export default class AccountService {
 
   static async verify(uuid, verifCode) {
     const account = await AccountRepo.findByUuid(uuid);
-    // 인증시간 초과
-    if (!account) throw new error.UnauthorizedError();
+    if (!account) throw new error.NotFoundError();
 
     if (verifCode !== account.verifCode) {
       const count = +account.verifCount + 1;
-      // 인증 횟수 초과
-      if (count > 1) throw new error.UnauthorizedError();
+      if (count > 1) {
+        await AccountRepo.delete(uuid);
+        throw new error.NotFoundError();
+      }
 
       await AccountRepo.update({ uuid, verifCount: count });
-      // 인증 번호 틀림
-      throw new error.UnauthorizedError();
+      throw new error.VerificationError();
     }
 
     const isVerification = true;
-    await AccountRepo.update({ uuid, isVerification });
+    await AccountRepo.updateVerification({ uuid, isVerification });
 
     return { isVerification };
+  }
+
+  static async find(uuid) {
+    const account = await AccountRepo.findByUuid(uuid);
+    if (!account) throw new error.NotFoundError();
+
+    if (!account.isVerification) {
+      await AccountRepo.delete(uuid);
+      throw new error.NotFoundError();
+    }
+
+    return account;
   }
 
   static async findBy(email) {

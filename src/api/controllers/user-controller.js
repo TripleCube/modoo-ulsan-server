@@ -30,4 +30,14 @@ export default class UserController {
       return next(err);
     }
   }
+
+  static async check(req, res, next) {
+    try {
+      const result = 'test';
+
+      return res.status(201).json(result);
+    } catch (err) {
+      return next(err);
+    }
+  }
 }

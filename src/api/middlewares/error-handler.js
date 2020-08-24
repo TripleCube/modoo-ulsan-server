@@ -1,7 +1,7 @@
-import { ValidationError } from '@utils/errors';
+import { error } from '@utils';
 
 function handleClientError(err, req, res, next) {
-  if (err instanceof ValidationError) {
+  if (err instanceof error.ValidationError) {
     const { statusCode, message } = err;
 
     return res.status(statusCode).json({ status: 'fail', message });
