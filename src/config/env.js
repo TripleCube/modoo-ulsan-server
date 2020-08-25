@@ -35,7 +35,7 @@ const env = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     host: process.env.DB_HOST,
-    port: parseInt(process.env.DB_PORT, 10),
+    port: +process.env.DB_PORT,
     timezone: process.env.DB_TIMEZONE,
   },
   member: {
@@ -48,6 +48,39 @@ const env = {
   token: {
     signature: process.env.JWT_SIGNATURE,
     expiration: process.env.JWT_EXPIRATION,
+  },
+  mailer: {
+    host: process.env.MAILER_HOST,
+    port: process.env.MAILER_PORT,
+    secure: process.env.MAILER_SECURE,
+    auth: {
+      user: process.env.MAILER_USER,
+      pass: process.env.MAILER_PASS,
+    },
+  },
+  request: {
+    google: {
+      baseURL: process.env.REQ_GOOGLE_URL,
+      timeout: +process.env.REQ_GOOGLE_WAIT,
+      params: {
+        serviceKey: process.env.REQ_GOOGLE_KEY,
+      },
+    },
+    tago: {
+      baseURL: process.env.REQ_TAGO_URL,
+      timeout: +process.env.REQ_TAGO_WAIT,
+      params: {
+        serviceKey: process.env.REQ_TAGO_KEY,
+        cityCode: process.env.REQ_TAGO_CITY,
+      },
+    },
+    ulsan: {
+      baseURL: process.env.REQ_ULSAN_URL,
+      timeout: +process.env.REQ_ULSAN_WAIT,
+      params: {
+        serviceKey: process.env.REQ_ULSAN_KEY,
+      },
+    },
   },
 };
 
