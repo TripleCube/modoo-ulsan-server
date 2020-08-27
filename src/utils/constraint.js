@@ -27,6 +27,11 @@ export const stop = Joi.object({
   number: Joi.number().integer().min(10000).max(99999),
 });
 
+export const bus = Joi.object({
+  name: Joi.string().max(12),
+  number: Joi.number().integer().min(10).max(2000),
+});
+
 export const credentials = {};
 export const identity = {};
 export const authentication = {};
