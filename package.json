@@ -1,8 +1,8 @@
 {
-  "name": "modoo-ulsan-server",
-  "version": "0.2.0-alpha.15",
-  "description": "Backend for Modoo Ulsan",
-  "repository": "https://github.com/tricube/modoo-ulsan-server",
+  "name": "prev-server",
+  "version": "0.3.0-alpha",
+  "description": "Backend for Prev",
+  "repository": "https://github.com/tricube/prev-server",
   "author": "Tricube <can@live.in>",
   "license": "MIT",
   "scripts": {
@@ -17,7 +17,8 @@
     "migrate:rollback": "sequelize db:migrate:undo",
     "migrate:reset": "sequelize db:migrate:undo:all",
     "migrate:refresh": "yarn migrate:reset && yarn migrate:all",
-    "seed": "sequelize db:seed:all"
+    "seed": "sequelize db:seed:all",
+    "test": "nodemon src/scripts/index.js"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
@@ -31,7 +32,8 @@
     "nodemailer": "^6.4.11",
     "redis": "^3.0.2",
     "sequelize": "^6.3.4",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
