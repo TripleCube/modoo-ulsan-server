@@ -1,12 +1,26 @@
 import env from './env';
 
-const { request } = env;
-const { google, tago, ulsan } = request;
+const { google, kauth, kakao, tago, ulsan } = env.request;
 
-tago.params = { ...tago.params, _type: 'json' };
+kakao.headers = {
+  'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+};
+kakao.params = {
+  secure_resource: true,
+};
+
+tago.params._type = 'json';
 
 const googleConfig = google;
+const kakaoConfig = kakao;
+const kauthConfig = kauth;
 const tagoConfig = tago;
 const ulsanConfig = ulsan;
 
-export default { googleConfig, tagoConfig, ulsanConfig };
+export default {
+  googleConfig,
+  kauthConfig,
+  kakaoConfig,
+  tagoConfig,
+  ulsanConfig,
+};

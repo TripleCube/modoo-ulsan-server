@@ -1,6 +1,6 @@
 {
   "name": "prev-server",
-  "version": "0.3.0-alpha",
+  "version": "0.3.0-alpha.1",
   "description": "Backend for Prev",
   "repository": "https://github.com/tricube/prev-server",
   "author": "Tricube <can@live.in>",
